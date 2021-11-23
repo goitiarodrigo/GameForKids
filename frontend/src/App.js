@@ -1,11 +1,13 @@
 import './App.css';
 import Roulette from './Components/Roulette';
-import Donuts from './Components/Donuts';
+import Donut from './Components/Donut';
+import Images from "./Components/Images"
 
 const App = () => {
   return (
     // <Roulette />
-    <Donuts />
+    // <Donut />
+    <Images />  
   )
 }
 
