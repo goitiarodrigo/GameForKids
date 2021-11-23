@@ -14,25 +14,21 @@ const data = [
 
 const Roulette = () => {
     const [mustSpin, setMustSpin] =  useState(false)
-    const [indexFromData, setIndexFromData] = useState (0)
+    const [dataIndex, setDataIndex] = useState (0)
     const [quantityPlay, setQuantityPlay] = useState (0)
     const [arrayForIndexs, setArrayForIndexs] =  useState([])
     const audio = useRef()
-    
-    //arrayForIndexs[arrayForIndexs.length]
 
     const handleClickOnRoulette = () => {
-        
         let nRandomForIndex = Math.floor(Math.random() * data.length)
-        if (!arrayForIndexs.includes(nRandomForIndex)) {
-            setArrayForIndexs([...arrayForIndexs, nRandomForIndex])
-        }else{
-            setArrayForIndexs([...arrayForIndexs, nRandomForIndex+1])
-        }
 
-        setIndexFromData(nRandomForIndex)
+        while (arrayForIndexs.includes(nRandomForIndex)) {
+                nRandomForIndex = Math.floor(Math.random() * data.length)
+        }
+        
+        setArrayForIndexs([...arrayForIndexs, nRandomForIndex])
+        setDataIndex(nRandomForIndex)
         setMustSpin(true)
-        console.log(arrayForIndexs)
         setTimeout(()=>{
             audio.current.play()
         }, 1500)
@@ -44,14 +40,13 @@ const Roulette = () => {
         setQuantityPlay(0)
     }
 
-    quantityPlay > 0 && Object.assign(data[indexFromData], {style: {backgroundColor: "gray", textColor: "white"}})
+    quantityPlay > 0 && Object.assign(data[dataIndex], {style: {backgroundColor: "gray", textColor: "white"}})
 
-    
     return (
         <div >
         <Wheel 
             mustStartSpinning={mustSpin}
-            prizeNumber={indexFromData}
+            prizeNumber={dataIndex}
             data={data}
             textColors={['black']}
             onStopSpinning={handleChangeBySpin}
@@ -69,8 +64,8 @@ const Roulette = () => {
             <audio ref={audio}>
                 <source src="./assets/roulette.mp3" type="audio/mp3"></source>
             </audio>
-            </button>
-        <p>Le tocó:  {!mustSpin ? data[indexFromData].option : "-"}</p>
+        </button>
+        <p>Le tocó:  {!mustSpin ? data[dataIndex].option : "-"}</p>
        
         </div>
     )

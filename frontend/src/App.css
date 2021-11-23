@@ -1,38 +1,125 @@
-.App {
-  text-align: center;
+html*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+#warped {
+  display: block; 
+  width:500px; 
+  height:400px;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#warped img{
+  position: absolute;
+  width: 30px;
+  height: 30px;
   }
-  to {
-    transform: rotate(360deg);
+  #warped .w0 {
+  transform: translate(279.764px, 40.0049px);
   }
-}
+
+  #warped .w1 {
+  transform: translate(317.452px, 44.0817px);
+  }
+
+  #warped .w2 {
+  transform: translate(351.362px, 55.7766px);
+  }
+
+  #warped .w3 {
+  transform: translate(379.623px, 75.1301px);
+  }
+
+  #warped .w4 {
+  transform: translate(406.849px, 100.496px);
+  }
+  
+  #warped .w5 {
+  transform: translate(424.435px, 128.073px);
+  }
+
+  #warped .w6 {
+  transform: translate(435.028px, 161.02px);
+  }
+
+  #warped .w7 {
+  transform: translate(442.467px, 195.22px);
+  }
+
+  #warped .w8 {
+  transform: translate(441.37px, 229.458px);
+  }
+
+  #warped .w9 {
+  transform: translate(431.078px, 257.343px);
+  }
+
+  #warped .w10 {
+  transform: translate(413.13px, 281.274px);
+  }
+
+  #warped .w11 {
+  transform: translate(394.314px, 306.801px);
+  }
+
+  #warped .w12 {
+  transform: translate(358.277px, 329.759px);
+  }
+
+  #warped .w13 {
+  transform: translate(322.788px, 346.159px);
+  }
+
+  #warped .w14 {
+  transform: translate(284.324px, 351.953px);
+  }
+
+  #warped .w15 {
+  transform: translate(243.648px, 347.824px);
+  }
+
+  #warped .w16 {
+  transform: translate(212.033px, 334.923px);
+  }
+
+  #warped .w17 {
+  transform: translate(177.499px, 314.033px);
+  }
+
+  #warped .w18 {
+  transform: translate(155.042px, 285.947px);
+  }
+
+  #warped .w19 {
+  transform: translate(138.916px, 255.798px);
+  }
+
+  #warped .w20 {
+  transform: translate(129.983px, 223.72px);
+  }
+
+  #warped .w21 {
+  transform: translate(125.187px, 188.371px);
+  }
+
+  #warped .w22 {
+  transform: translate(132.341px, 151.975px);
+  }
+
+  #warped .w23 {
+  transform: translate(143.443px, 113.753px);
+  }
+
+  #warped .w24 {
+  transform: translate(176.228px, 81.797px);
+  }
+
+  #warped .w25 {
+  transform: translate(204.368px, 61.2672px);
+  }
+
+  #warped .w26 {
+  transform: translate(242.361px, 47.452px);
+  }
+
