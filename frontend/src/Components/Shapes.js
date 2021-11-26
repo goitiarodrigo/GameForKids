@@ -1,112 +1,126 @@
 import { useState } from "react"
-import Circle from "./Circle"
-import Diamond from "./Diamond"
-import Oval from "./Oval"
-import Rectangle from "./Rectangle"
-import Square from "./Square"
-import Triangle from "./Triangle"
 
-let triangle = []
-let square = []
-let circle = []
-let oval = []
-let rectangle = []
-let diamond = []
+import {Oval, Diamond, Square, Rectangle, Circle, Triangle} from "./CarouselContain"
+
 
 const shapes = [
-     triangle= [
+     [
         {shape: "https://i.postimg.cc/MHqZz0yj/triangulo.png", name: "Triangulo"},
         {shape: "https://i.postimg.cc/FzprzfZC/triangulo_musica.png", name: "Triangulo musical"},
-        {shape: "https://i.postimg.cc/cHY6x42P/pizza-porcion.png", name: "Porcion pizza"},
-        {shape: "https://i.postimg.cc/PrHvqYty/monta-a.png", name: "Montaña"},
-        {shape: "https://i.postimg.cc/qqVhyC2k/miga.png", name: "Miga"},
-        {shape: "https://i.postimg.cc/MKJVjgYy/escuadra.png", name: "Escuadra"},
-        {shape: "https://i.postimg.cc/mrgQgMyJ/cono.png", name: "Cono"},
-        {shape: "https://i.postimg.cc/pLxf33h2/choza.png", name: "Choza"},
-        {shape: "https://i.postimg.cc/XqCK0bkv/cartel-triangulo.png", name: "Cartel triangular"},
-        {shape: "https://i.postimg.cc/mZJVpdyD/banderin.png", name: "Banderin"}
+        {shape: "https://i.postimg.cc/cHY6x42P/pizza-porcion.png", name: "Triangulo Porcion pizza"},
+        {shape: "https://i.postimg.cc/PrHvqYty/monta-a.png", name: "Triangulo Montaña"},
+        {shape: "https://i.postimg.cc/qqVhyC2k/miga.png", name: "Triangulo Miga"},
+        {shape: "https://i.postimg.cc/MKJVjgYy/escuadra.png", name: "Triangulo Escuadra"},
+        {shape: "https://i.postimg.cc/mrgQgMyJ/cono.png", name: "Triangulo Cono"},
+        {shape: "https://i.postimg.cc/pLxf33h2/choza.png", name: "Triangulo Choza"},
+        {shape: "https://i.postimg.cc/XqCK0bkv/cartel-triangulo.png", name: "Triangulo Cartel triangular"},
+        {shape: "https://i.postimg.cc/mZJVpdyD/banderin.png", name: "Triangulo Banderin"}
 ],
-    square= [
+    [
         {shape: "https://i.postimg.cc/FRf3j4qx/cuadrado.png", name: "Cuadrado"},
-        {shape: "https://i.postimg.cc/j5zdV3Jb/televisor.png", name: "Television"},
-        {shape: "https://i.postimg.cc/QNJx0P3g/valija.png", name: "Valija"},
-        {shape: "https://i.postimg.cc/d3Y3LcK3/regalo.png", name: "Regalo"},
-        {shape: "https://i.postimg.cc/fby9Nswh/galleta-cuadrada.png", name: "Galleta"},
-        {shape: "https://i.postimg.cc/fRB9pyQK/fotoretrato.png", name: "Ventana"},
-        {shape: "https://i.postimg.cc/3RPp1qQQ/dado.png", name: "Dado"},
-        {shape: "https://i.postimg.cc/bdfw4HdM/ajedrez.png", name: "Tablero"},
-        {shape: "https://i.postimg.cc/FsbcbGPw/foto.png", name: "Foto"},
+        {shape: "https://i.postimg.cc/j5zdV3Jb/televisor.png", name: "Cuadrado Television"},
+        {shape: "https://i.postimg.cc/QNJx0P3g/valija.png", name: "Cuadrado Valija"},
+        {shape: "https://i.postimg.cc/d3Y3LcK3/regalo.png", name: "Cuadrado Regalo"},
+        {shape: "https://i.postimg.cc/fby9Nswh/galleta-cuadrada.png", name: "Cuadrado Galleta"},
+        {shape: "https://i.postimg.cc/fRB9pyQK/fotoretrato.png", name: "Cuadrado Ventana"},
+        {shape: "https://i.postimg.cc/3RPp1qQQ/dado.png", name: "Cuadrado Dado"},
+        {shape: "https://i.postimg.cc/bdfw4HdM/ajedrez.png", name: "Cuadrado Tablero"},
+        {shape: "https://i.postimg.cc/FsbcbGPw/foto.png", name: "Cuadrado Foto"},
 ],
-    circle= [
+    [
         {shape: "https://i.postimg.cc/65CVjBQj/circulo.png", name: "Circulo"},
-        {shape: "https://i.postimg.cc/k4rXpPGs/tablero-redondo.png", name: "Tablero redondo"},
-        {shape: "https://i.postimg.cc/nhzzs1N4/salvavidas.png", name: "Salvavidas"},
-        {shape: "https://i.postimg.cc/kMQDLGxb/reloj-despertador.png", name: "Despertador"},
-        {shape: "https://i.postimg.cc/TYQ1YsN2/rueda.png", name: "Rueda"},
-        {shape: "https://i.postimg.cc/9fsrHq8G/pizza.png", name: ""},
-        {shape: "https://i.postimg.cc/9fsrHq8G/pizza.png", name: "Pizza entera"},
-        {shape: "https://i.postimg.cc/qqstLMG2/moneda.png", name: "Moneda"},
-        {shape: "https://i.postimg.cc/FFL0zh0r/dona.png", name: "Dona"},
-        {shape: "https://i.postimg.cc/s2jJGbsn/boton.png", name: "Boton"},
-        {shape: "https://i.postimg.cc/tRY250Pw/aro.png", name: "Aro"}
+        {shape: "https://i.postimg.cc/k4rXpPGs/tablero-redondo.png", name: "Circulo Tablero redondo"},
+        {shape: "https://i.postimg.cc/nhzzs1N4/salvavidas.png", name: "Circulo Salvavidas"},
+        {shape: "https://i.postimg.cc/kMQDLGxb/reloj-despertador.png", name: "Circulo Despertador"},
+        {shape: "https://i.postimg.cc/TYQ1YsN2/rueda.png", name: "Circulo Rueda"},
+        {shape: "https://i.postimg.cc/9fsrHq8G/pizza.png", name: "Circulo Pizza entera"},
+        {shape: "https://i.postimg.cc/qqstLMG2/moneda.png", name: "Circulo Moneda"},
+        {shape: "https://i.postimg.cc/FFL0zh0r/dona.png", name: "Circulo Dona"},
+        {shape: "https://i.postimg.cc/s2jJGbsn/boton.png", name: "Circulo Boton"},
+        {shape: "https://i.postimg.cc/tRY250Pw/aro.png", name: "Circulo Aro"}
 ],
-    oval= [
+    [
         {shape: "https://i.postimg.cc/3xJyXh0D/ovalado.png", name: "Ovalo"},
-        {shape: "https://i.postimg.cc/HkpM65Rn/espejo-ovalado.png", name: "Espejo"},
-        {shape: "https://i.postimg.cc/QMzWNztK/globo-ovalado.png", name: "Globo"},
-        {shape: "https://i.postimg.cc/pTn5mBhG/hueov.png", name: "Huevo"},
-        {shape: "https://i.postimg.cc/L8CJvWjQ/palta.png", name: "Palta"},
-        {shape: "https://i.postimg.cc/s2MvLJcj/pelota-rugby.png", name: "Pelota rugby"},
-        {shape: "https://i.postimg.cc/d0ZV6VsD/sandia.png", name: "Sandia"},
+        {shape: "https://i.postimg.cc/HkpM65Rn/espejo-ovalado.png", name: "Ovalo Espejo"},
+        {shape: "https://i.postimg.cc/QMzWNztK/globo-ovalado.png", name: "Ovalo Globo"},
+        {shape: "https://i.postimg.cc/pTn5mBhG/hueov.png", name: "Ovalo Huevo"},
+        {shape: "https://i.postimg.cc/L8CJvWjQ/palta.png", name: "Ovalo Palta"},
+        {shape: "https://i.postimg.cc/s2MvLJcj/pelota-rugby.png", name: "Ovalo Pelota rugby"},
+        {shape: "https://i.postimg.cc/d0ZV6VsD/sandia.png", name: "Ovalo Sandia"},
 ],
-    rectangle= [
+    [
         {shape: "https://i.postimg.cc/D0PZGp2g/rectangulo.png", name: "Rectangulo"},
-        {shape: "https://i.postimg.cc/9MztJT4Z/billetera.png", name: "Billetera"},
-        {shape: "https://i.postimg.cc/cLMmHdyg/cancha.png", name: "Cancha"},
-        {shape: "https://i.postimg.cc/g0t3XJMJ/cuaderno.png", name: "Cuaderno"},
-        {shape: "https://i.postimg.cc/fTvtSyyN/naipe.png", name: "Naipe"},
-        {shape: "https://i.postimg.cc/4xS3p9Tr/sobre.png", name: "Sobre"},
-        {shape: "https://i.postimg.cc/c1w8ZXN6/monitor.png", name: "Monitor"},
-        {shape: "https://i.postimg.cc/RhH0PbCK/agenda.png", name: "Agenda"},
-        {shape: "https://i.postimg.cc/1zvrGMzy/calculadora.png", name: "Calculadora"},
+        {shape: "https://i.postimg.cc/9MztJT4Z/billetera.png", name: "Rectangulo Billetera"},
+        {shape: "https://i.postimg.cc/cLMmHdyg/cancha.png", name: "Rectangulo Cancha"},
+        {shape: "https://i.postimg.cc/g0t3XJMJ/cuaderno.png", name: "Rectangulo Cuaderno"},
+        {shape: "https://i.postimg.cc/fTvtSyyN/naipe.png", name: "Rectangulo Naipe"},
+        {shape: "https://i.postimg.cc/4xS3p9Tr/sobre.png", name: "Rectangulo Sobre"},
+        {shape: "https://i.postimg.cc/c1w8ZXN6/monitor.png", name: "Rectangulo Monitor"},
+        {shape: "https://i.postimg.cc/RhH0PbCK/agenda.png", name: "Rectangulo Agenda"},
+        {shape: "https://i.postimg.cc/1zvrGMzy/calculadora.png", name: "Rectangulo Calculadora"},
 ],
-    diamond= [
+    [
         {shape: "https://i.postimg.cc/L6mhSST0/rombo.png", name: "Rombo"},
-        {shape: "https://i.postimg.cc/523BJpL8/collar-rombo.png", name: "Medalla"},
-        {shape: "https://i.postimg.cc/9MSPSMTS/cartel-rombo.png", name: "Cartel rombo"},
-        {shape: "https://i.postimg.cc/BQFprxmC/barrilete.png", name: "Barrilete"},
+        {shape: "https://i.postimg.cc/523BJpL8/collar-rombo.png", name: "Rombo Medalla"},
+        {shape: "https://i.postimg.cc/9MSPSMTS/cartel-rombo.png", name: "Rombo Cartel rombo"},
+        {shape: "https://i.postimg.cc/BQFprxmC/barrilete.png", name: "Rombo Barrilete"},
         {shape: "https://i.postimg.cc/mkswQWpJ/rombo-naipe.png", name: "Rombo naipe"},
-        {shape: "https://i.postimg.cc/90YBbgvM/cartel-rombo.png", name: "Cartel"}
+        {shape: "https://i.postimg.cc/90YBbgvM/cartel-rombo.png", name: "Rombo Cartel"},
+        {shape: "https://i.postimg.cc/rprr47KR/diamante-Rombo.png", name: "Rombo diamante"}
 ]]
 
 const Shapes = () => {
 
     const [choose, setChoose] = useState("")
+    const [shapeImage, setShapeImage] = useState("")
     const [newArray, setNewArray] = useState([])
+    let things = []
+    let randomShapeArray = []
+    let array = []
+    let randomShape = {}
 
-    const handleChooseForm = (name, index) => {
+    const handleChooseShape = (name, index) => {
+
         setChoose(name)
+        setShapeImage(shapes[index][0])
+        for (let i = 1; i < 7; i++) {
+            randomShapeArray = shapes[Math.floor(Math.random()*shapes.length)]
+
+            if (randomShapeArray === shapes[index]) 
+                randomShapeArray = shapes[Math.floor(Math.random()*shapes.length)]
+            
+            randomShape = randomShapeArray[Math.floor(Math.random()*randomShapeArray.length)]
+
+            let randomShapeTwo = randomShapeArray[Math.floor(Math.random()*randomShapeArray.length)]
+            
+            things.push(shapes[index][i], randomShape, randomShapeTwo)
+            
+        }
         // console.log(name, index)
-        console.log(shapes[Math.floor(Math.random()*shapes.length)])
-        
-        // shapes[index] = shapes[index].slice(1)
-        // console.log(shapes[index])
+        let some = new Set(things)
+        array = [...some]
+        while (array.length < 18){
+             randomShape = randomShapeArray[Math.floor(Math.random()*randomShapeArray.length)]
+             array.push(randomShape)
+             some = new Set(array)
+             array = [...some]
+            }
+            setNewArray(array)
     }
 
-    console.log(shapes[Math.floor(Math.random()*shapes.length)])
 
     return (
         <div>
             {choose.length < 1 ? shapes.map((shape, index)=> {
-                return <img onClick={()=>handleChooseForm(shape[0].name, index)} key={index} src={shape[0].shape} alt="..."/>
+                return <img onClick={()=>handleChooseShape(shape[0].name, index)} key={index} src={shape[0].shape} alt="..."/>
             }) 
             : 
-            choose === "Triangulo" ? <Triangle shapes={shapes} />
-            : choose === "Cuadrado" ? <Square shapes={shapes} /> 
-            : choose === "Circulo" ? <Circle shapes={shapes} />
-            : choose === "Ovalo" ? <Oval shapes={shapes} />
-            : choose === "Rectangulo" ? <Rectangle shapes={shapes} />
-            : choose === "Rombo" && <Diamond shapes={shapes} />
+            choose === "Triangulo" ? <Triangle shapes={newArray} triangleImage={shapeImage} />
+            : choose === "Cuadrado" ? <Square shapes={newArray} squareImage={shapeImage} /> 
+            : choose === "Circulo" ? <Circle shapes={newArray} circleImage={shapeImage} />
+            : choose === "Ovalo" ? <Oval shapes={newArray} ovalImage={shapeImage} />
+            : choose === "Rectangulo" ? <Rectangle shapes={newArray} rectangleImage={shapeImage} />
+            : choose === "Rombo" && <Diamond shapes={newArray} diamondImage={shapeImage} />
             
             }
             <p onClick={()=>setChoose("")}>Atrás</p>
