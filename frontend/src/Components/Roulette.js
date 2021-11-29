@@ -2,19 +2,19 @@ import { Wheel } from "react-custom-roulette"
 import { useState, useRef } from "react"
 
 const data = [
-    {id: 1, option: "Lectura"},
-    {id: 2, option: "Matemáticas"},
-    {id: 3, option: "Colores"},
-    {id: 4, option: "Cs. Naturales"},
-    {id: 5, option: "Arte"},
+    {id: 1, option: "Formas"},
+    {id: 2, option: "Imagenes"},
+    {id: 3, option: "Animales"},
+    {id: 4, option: "Cuentos"},
+    {id: 5, option: "Pasapalabra"},
     {id: 6, option: "Anatomía"},
 ]
 
 
 
-const Roulette = () => {
+const Roulette = ({setOptionTaken}) => {
     const [mustSpin, setMustSpin] =  useState(false)
-    const [dataIndex, setDataIndex] = useState (0)
+    const [dataIndex, setDataIndex] = useState (-1)
     const [quantityPlay, setQuantityPlay] = useState (0)
     const [arrayForIndexs, setArrayForIndexs] =  useState([])
     const audio = useRef()
@@ -40,33 +40,44 @@ const Roulette = () => {
         setQuantityPlay(0)
     }
 
-    quantityPlay > 0 && Object.assign(data[dataIndex], {style: {backgroundColor: "gray", textColor: "white"}})
+    quantityPlay > 0 && Object.assign(data[dataIndex], {style: {backgroundColor: "#aacc00", textColor: "white"}})
+
+    setTimeout(()=>{
+        (dataIndex >= 0 && !mustSpin) ? setOptionTaken(data[dataIndex].option) : setOptionTaken("")
+    }, 1500)
 
     return (
-        <div >
-        <Wheel 
-            mustStartSpinning={mustSpin}
-            prizeNumber={dataIndex}
-            data={data}
-            textColors={['black']}
-            onStopSpinning={handleChangeBySpin}
-            backgroundColors={[
-                "#F22B35",
-                "#F99533",
-                "#24CA69",
-                "#514E50",
-                "#46AEFF",
-                "#9145B7"
-              ]}
-        />
-        <button onClick={handleClickOnRoulette} disabled={mustSpin}>
-            {mustSpin ? "Girando": "Jugar!" }
-            <audio ref={audio}>
-                <source src="./assets/roulette.mp3" type="audio/mp3"></source>
-            </audio>
-        </button>
-        <p>Le tocó:  {!mustSpin ? data[dataIndex].option : "-"}</p>
-       
+        <div className="rouletteContain">
+            <div className="roulette">
+                <Wheel 
+                    mustStartSpinning={mustSpin}
+                    prizeNumber={dataIndex}
+                    data={data}
+                    outerBorderColor={["#0089e4"]}
+                    outerBorderWidth={[10]}
+                    radiusLineWidth={[0]}
+                    textColors={['black']}
+                    onStopSpinning={handleChangeBySpin}
+                    backgroundColors={[
+                        "#2597f4",
+                        "#4fafff",
+                        "#2597f4",
+                        "#4fafff",
+                        "#2597f4",
+                        "#4fafff"
+                    ]}
+                />
+            </div>
+            <div className="buttonContain">
+                <button onClick={handleClickOnRoulette} disabled={mustSpin}>
+                    {mustSpin ? "Girando": "Girar!" }
+                    <audio ref={audio}>
+                        <source src="./assets/roulette.mp3" type="audio/mp3"></source>
+                    </audio>
+                </button>
+                
+                
+            </div>
         </div>
     )
 }

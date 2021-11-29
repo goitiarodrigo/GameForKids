@@ -110,20 +110,23 @@ const Shapes = () => {
 
 
     return (
-        <div>
-            {choose.length < 1 ? shapes.map((shape, index)=> {
-                return <img onClick={()=>handleChooseShape(shape[0].name, index)} key={index} src={shape[0].shape} alt="..."/>
-            }) 
-            : 
-            choose === "Triangulo" ? <Triangle shapes={newArray} triangleImage={shapeImage} />
-            : choose === "Cuadrado" ? <Square shapes={newArray} squareImage={shapeImage} /> 
-            : choose === "Circulo" ? <Circle shapes={newArray} circleImage={shapeImage} />
-            : choose === "Ovalo" ? <Oval shapes={newArray} ovalImage={shapeImage} />
-            : choose === "Rectangulo" ? <Rectangle shapes={newArray} rectangleImage={shapeImage} />
-            : choose === "Rombo" && <Diamond shapes={newArray} diamondImage={shapeImage} />
+        <div className="shapesContainer">
+            <div className={choose.length > 0 ? "shapesChildrenAgo" : "shapesChildren"}>
+                {choose.length < 1 ? shapes.map((shape, index)=> {
+                    return <div className="figure"  onClick={()=>handleChooseShape(shape[0].name, index)} key={index} style={{backgroundImage: `url(${shape[0].shape})`}} alt="..."></div>
+                }) 
+                : 
+                choose === "Triangulo" ? <Triangle shapes={newArray} triangleImage={shapeImage} />
+                : choose === "Cuadrado" ? <Square shapes={newArray} squareImage={shapeImage} /> 
+                : choose === "Circulo" ? <Circle shapes={newArray} circleImage={shapeImage} />
+                : choose === "Ovalo" ? <Oval shapes={newArray} ovalImage={shapeImage} />
+                : choose === "Rectangulo" ? <Rectangle shapes={newArray} rectangleImage={shapeImage} />
+                : choose === "Rombo" && <Diamond shapes={newArray} diamondImage={shapeImage} />
+                
+                }
+                
+            </div>
             
-            }
-            <p onClick={()=>setChoose("")}>Atrás</p>
         </div>
     )
 }
