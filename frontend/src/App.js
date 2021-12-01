@@ -9,6 +9,7 @@ import { Route, BrowserRouter, Routes, Redirect } from "react-router-dom"
 import Home from './pages/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import HighScore from './components/HighScore';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route path="/highscore" element={<HighScore />} />
         {/* <Route path="/rosco" element={<Donut />} />
         <Route path="/images" element={<Images />} />
         <Route path="/formas" element={<Shapes />} />

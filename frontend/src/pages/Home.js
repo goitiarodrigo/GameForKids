@@ -5,12 +5,15 @@ import Roulette from '../components/Roulette';
 import Shapes from '../components/Shapes';
 import { useState } from 'react';
 import Stories from '../components/Stories';
+import ModalLog from '../components/ModalLog';
+import HighScore from "../components/HighScore"
+
 
 const Home = () => {
     
     const [optionTaken, setOptionTaken] = useState("")
-    console.log(optionTaken)
     
+
     return (
         <div className="container">
             {optionTaken === "" ? <Roulette  setOptionTaken={setOptionTaken}/>
@@ -18,8 +21,9 @@ const Home = () => {
             : optionTaken === "Pasapalabra" ? <Donut />
             : optionTaken === "Imagenes" ? <Images />
             : optionTaken === "Formas" ? <Shapes />
-            : optionTaken === "Cuentos" && <Stories />
-        }
+            : optionTaken === "Cuentos" ? <Stories />
+            : optionTaken === "Anterior" && <Stories />}
+
         </div>
     )
 }

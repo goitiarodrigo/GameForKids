@@ -7,7 +7,7 @@ const data = [
     {id: 3, option: "Animales"},
     {id: 4, option: "Cuentos"},
     {id: 5, option: "Pasapalabra"},
-    {id: 6, option: "Anatomía"},
+    {id: 6, option: "Anterior"},
 ]
 
 
